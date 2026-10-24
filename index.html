@@ -1,0 +1,1081 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fffaf0">
+<meta name="description" content="Krishna Dairy - Dairy products, milk enquiries, bulk orders and delivery enquiries on WhatsApp.">
+<title>Krishna Dairy | Freshness for Every Day</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<style>
+:root{
+  --bg:#fffaf0;
+  --surface:#ffffff;
+  --soft:#fff0d5;
+  --text:#30251c;
+  --muted:#75685b;
+  --primary:#57351e;
+  --gold:#e9ae37;
+  --line:#eadcc6;
+  --green:#21834a;
+  --red:#e84c4c;
+  --blue:#3677e8;
+  --shadow:0 14px 40px rgba(66,44,20,.10);
+}
+body.dark{
+  --bg:#171a17;
+  --surface:#222720;
+  --soft:#303026;
+  --text:#f8f1e5;
+  --muted:#c4bbaa;
+  --primary:#f0c58a;
+  --gold:#ffcc54;
+  --line:#45463a;
+  --green:#70d995;
+  --shadow:0 14px 40px rgba(0,0,0,.3);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{
+  font-family:"DM Sans",sans-serif;
+  background:var(--bg);color:var(--text);
+  line-height:1.7;overflow-x:hidden;
+  transition:background .3s,color .3s;
+}
+body,button,input,select,textarea{font-family:"DM Sans",sans-serif}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{cursor:pointer}
+.container{width:min(1160px,92%);margin:auto}
+section{padding:85px 0}
+.section-title{
+  font:800 clamp(2rem,4vw,3.3rem)/1.15 "Playfair Display",serif;
+  letter-spacing:-1px;
+}
+.eyebrow{
+  color:#c58c22;font-weight:800;font-size:.77rem;
+  letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;
+}
+.section-desc{color:var(--muted);margin-top:13px}
+.section-head{max-width:720px;margin-bottom:36px}
+.section-head.center{text-align:center;margin:0 auto 40px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:13px 21px;border:1px solid transparent;border-radius:9px;
+  font-size:.9rem;font-weight:800;transition:.25s;
+}
+.btn-primary{background:var(--primary);color:white}
+body.dark .btn-primary{color:#21190f}
+.btn-outline{border:1px solid var(--line);background:var(--surface);color:var(--text)}
+.btn-gold{background:var(--gold);color:#30210b}
+.btn:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.btn-primary:hover{background:var(--red);color:white}
+.btn-outline:hover{border-color:var(--blue);color:var(--blue)}
+.eyebrow,.section-title,.section-desc{transition:color .25s}
+
+/* COLORFUL HOVER SYSTEM */
+.color-hover{transition:transform .3s,box-shadow .3s,border-color .3s}
+.color-hover:nth-child(4n+1):hover{border-color:var(--red);box-shadow:0 12px 30px #e84c4c20}
+.color-hover:nth-child(4n+2):hover{border-color:var(--gold);box-shadow:0 12px 30px #e9ae3725}
+.color-hover:nth-child(4n+3):hover{border-color:var(--green);box-shadow:0 12px 30px #21834a20}
+.color-hover:nth-child(4n):hover{border-color:var(--blue);box-shadow:0 12px 30px #3677e820}
+.color-hover:hover{transform:translateY(-6px)}
+::selection{background:#ffda72;color:#2c2115}
+
+.topline{background:#342319;color:#fff5e5;font-size:.8rem;padding:8px 0}
+.topline .container{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.topline a{font-weight:800}
+.topline a:hover{color:#70d995}
+
+header{
+  position:sticky;top:0;z-index:100;
+  background:var(--bg);border-bottom:1px solid var(--line);
+  backdrop-filter:blur(15px);
+}
+nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{display:flex;align-items:center;gap:11px;flex-shrink:0}
+.brand-icon{
+  width:49px;height:49px;border:2px solid var(--gold);
+  border-radius:15px;display:grid;place-items:center;
+  color:var(--green);font-size:1.6rem;background:var(--surface);
+  overflow:hidden;
+}
+.brand-icon img{width:100%;height:100%;object-fit:contain}
+.brand-name{font:800 1.3rem "Playfair Display",serif}
+.brand-tag{display:block;color:var(--muted);font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:18px}
+.nav-links a{font-size:.83rem;font-weight:800;color:var(--muted);transition:.2s}
+.nav-links a:hover{color:var(--red)}
+.nav-actions{display:flex;align-items:center;gap:9px}
+.icon-btn{
+  width:42px;height:42px;border:1px solid var(--line);
+  border-radius:50%;background:var(--surface);color:var(--text);
+  display:grid;place-items:center;font-size:1.1rem;
+}
+.icon-btn:hover{background:var(--gold);color:#241a10}
+.menu-btn{display:none}
+
+/* HERO */
+.hero{padding:54px 0 75px;position:relative;overflow:hidden}
+.hero:before{
+  content:"";position:absolute;width:350px;height:350px;
+  border-radius:50%;background:#f3c75a16;right:-140px;top:-100px;
+  pointer-events:none;
+}
+.hero-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:45px;align-items:center}
+.hero-label{
+  display:inline-flex;align-items:center;gap:8px;
+  border:1px solid var(--line);background:var(--surface);
+  padding:8px 13px;border-radius:50px;font-size:.78rem;font-weight:800;
+  margin-bottom:22px;
+}
+.hero-label i{color:var(--green)}
+.hero h1{
+  font:800 clamp(3rem,6vw,5.4rem)/1.04 "Playfair Display",serif;
+  letter-spacing:-2px;
+}
+.hero h1 span{color:#d9a12f;font-style:italic}
+.hero-copy>p{color:var(--muted);font-size:1.02rem;margin:22px 0 25px;max-width:500px}
+.hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
+.hero-note{display:flex;align-items:center;gap:12px;margin-top:27px;color:var(--muted);font-size:.84rem}
+.note-icon{
+  width:45px;height:45px;flex-shrink:0;border-radius:50%;
+  display:grid;place-items:center;background:#dff3e4;color:var(--green);font-size:1.2rem;
+}
+.hero-photo{position:relative;padding:0 0 25px 25px}
+.hero-photo:before{
+  content:"";position:absolute;left:0;bottom:0;width:65%;height:70%;
+  border:2px solid var(--gold);border-radius:12px;
+}
+.hero-photo>img{
+  width:100%;height:510px;object-fit:cover;
+  position:relative;z-index:1;border-radius:12px;
+}
+.photo-tag{
+  position:absolute;z-index:2;bottom:0;right:-8px;
+  max-width:245px;padding:17px;border-radius:12px;
+  background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);
+}
+.photo-tag strong{display:block;font:800 1.25rem "Playfair Display",serif}
+.photo-tag small{color:var(--muted)}
+.float-badge{
+  position:absolute;top:25px;right:-10px;z-index:3;
+  background:var(--green);color:white;padding:10px 15px;
+  border-radius:10px;font-size:.8rem;font-weight:800;
+  animation:float 3s ease-in-out infinite;
+}
+@keyframes float{50%{transform:translateY(-9px)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
+.hero-copy{animation:fadeUp .8s both}
+.hero-photo{animation:fadeUp 1s .15s both}
+
+/* PROMISE */
+.promise-strip{background:var(--surface);border-block:1px solid var(--line)}
+.promise-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.promise{
+  padding:23px 12px;display:flex;align-items:center;justify-content:center;
+  gap:12px;border-right:1px solid var(--line);transition:.25s;
+}
+.promise:last-child{border:0}
+.promise:hover{background:var(--soft)}
+.promise i{font-size:1.55rem;color:var(--gold)}
+.promise strong{display:block;font-size:.86rem}
+.promise small{font-size:.74rem;color:var(--muted)}
+
+/* ABOUT */
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
+.story-images{display:grid;grid-template-columns:1fr 1fr;gap:13px;align-items:center}
+.story-images img{height:285px;width:100%;object-fit:cover;border-radius:10px;cursor:zoom-in}
+.story-images img:first-child{margin-top:30px}
+.story-images img:last-child{margin-top:-30px}
+.story-copy p{color:var(--muted);margin:15px 0}
+.check-list{list-style:none;display:grid;gap:11px;margin:22px 0 27px}
+.check-list li{display:flex;gap:10px;align-items:flex-start}
+.check-list i{color:var(--green);margin-top:5px}
+
+/* PRODUCTS */
+.products-section{background:var(--soft);border-block:1px solid var(--line)}
+.product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.product-card{background:var(--surface);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.product-image{position:relative;overflow:hidden}
+.product-image img{height:245px;width:100%;object-fit:cover;transition:transform .5s}
+.product-card:hover .product-image img{transform:scale(1.06)}
+.product-number{position:absolute;top:13px;left:13px;background:var(--surface);border:1px solid var(--line);border-radius:7px;padding:6px 10px;font-size:.75rem;font-weight:800}
+.product-body{padding:23px}
+.product-body h3{font:800 1.5rem "Playfair Display",serif}
+.product-body p{color:var(--muted);font-size:.9rem;margin:9px 0 18px}
+.product-link{display:inline-flex;gap:8px;align-items:center;color:#b27a13;font-size:.85rem;font-weight:800}
+.product-link:hover{color:var(--red)}
+
+/* QUALITY */
+.quality-panel{
+  display:grid;grid-template-columns:1fr 1fr;gap:35px;
+  border:1px solid var(--line);border-radius:15px;padding:38px;background:var(--surface);
+}
+.quality-panel>div:first-child p{color:var(--muted);margin-top:15px}
+.quality-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.quality-item{border:1px solid var(--line);border-radius:10px;padding:17px;background:var(--bg)}
+.quality-item i{font-size:1.4rem;color:var(--gold)}
+.quality-item h3{font-size:.92rem;margin:7px 0 3px}
+.quality-item p{font-size:.79rem;color:var(--muted)}
+
+/* PROCESS */
+.process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.process-card{padding:25px;border:1px solid var(--line);background:var(--surface);border-radius:12px}
+.process-no{font:800 2.6rem "Playfair Display",serif;color:var(--gold)}
+.process-card h3{font:800 1.3rem "Playfair Display",serif;margin:10px 0 7px}
+.process-card p{color:var(--muted);font-size:.88rem}
+
+/* GALLERY */
+.gallery-section{background:#2e2117;color:#fff7e8}
+.gallery-section .eyebrow{color:#f2c56b}
+.gallery-section .section-desc{color:#dfd0ba}
+.gallery-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;grid-template-rows:220px 220px;gap:13px}
+.gallery-item{position:relative;overflow:hidden;cursor:zoom-in;background:#21170f;border-radius:10px}
+.gallery-item:first-child{grid-row:span 2}
+.gallery-item img{width:100%;height:100%;object-fit:cover;opacity:.9;transition:.5s}
+.gallery-item:hover img{transform:scale(1.07);opacity:1}
+.gallery-caption{
+  position:absolute;bottom:0;left:0;right:0;padding:34px 15px 13px;
+  background:linear-gradient(transparent,rgba(0,0,0,.8));color:#fff;
+}
+.gallery-caption strong{font:800 1.1rem "Playfair Display",serif}
+.gallery-caption small{display:block;font-size:.77rem}
+.gallery-hint{font-size:.82rem;color:#dfd0ba;margin-top:17px}
+
+/* ORDER */
+.order-section{background:var(--soft)}
+.order-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:45px;align-items:start}
+.order-copy{position:sticky;top:115px}
+.order-copy>p{color:var(--muted);margin-top:15px}
+.order-benefits{list-style:none;display:grid;gap:13px;margin-top:25px}
+.order-benefits li{display:flex;gap:10px}
+.order-benefits i{color:var(--green);margin-top:5px}
+.order-form{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:30px}
+.form-title{font:800 1.6rem "Playfair Display",serif;margin-bottom:6px}
+.form-intro{color:var(--muted);font-size:.86rem;margin-bottom:22px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field.full{grid-column:1/-1}
+.field label{font-size:.82rem;font-weight:800}
+.field input,.field select,.field textarea{
+  width:100%;padding:12px 13px;background:var(--bg);
+  color:var(--text);border:1px solid var(--line);border-radius:7px;outline:none;
+  transition:border-color .2s,box-shadow .2s;
+}
+.field input:focus,.field select:focus,.field textarea:focus{
+  border-color:var(--blue);box-shadow:0 0 0 3px #3677e820;
+}
+.field textarea{min-height:100px;resize:vertical}
+.form-note{font-size:.76rem;color:var(--muted);margin-top:13px}
+.form-submit{width:100%;margin-top:18px;border:0;background:#21834a;color:white}
+.form-submit:hover{background:#176638}
+
+/* FAQ */
+.faq-wrap{max-width:820px;margin:auto}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-question{
+  width:100%;background:transparent;color:var(--text);border:0;
+  display:flex;justify-content:space-between;align-items:center;gap:20px;
+  text-align:left;padding:21px 0;font-weight:800;
+}
+.faq-question i{color:var(--gold);transition:transform .25s}
+.faq-answer{display:none;color:var(--muted);padding:0 30px 20px 0;font-size:.92rem}
+.faq-item.active .faq-answer{display:block}
+.faq-item.active .faq-question i{transform:rotate(45deg)}
+
+/* CONTACT */
+.contact-panel{
+  background:var(--surface);border:1px solid var(--line);
+  border-radius:15px;padding:36px;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;
+}
+.contact-panel h2{font:800 clamp(2rem,4vw,3rem)/1.15 "Playfair Display",serif}
+.contact-panel p{color:var(--muted);margin:12px 0 20px}
+.contact-options{display:grid;gap:13px}
+.contact-option{display:flex;gap:14px;align-items:center;padding:15px;border:1px solid var(--line);background:var(--bg);border-radius:9px}
+.contact-option>i{font-size:1.4rem;color:var(--gold)}
+.contact-option strong{display:block;font-size:.9rem}
+.contact-option small{color:var(--muted);font-size:.8rem}
+.contact-option:hover{border-color:var(--green)}
+
+/* FOOTER */
+footer{background:#241a12;color:#fff3df;padding:48px 0 20px}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:35px;padding-bottom:32px}
+.footer-brand{font:800 1.6rem "Playfair Display",serif}
+footer p,footer a{color:#d7c9b6;font-size:.87rem}
+footer p{margin-top:12px}
+footer h3{font:800 1.15rem "Playfair Display",serif;margin-bottom:13px}
+.footer-links{display:grid;gap:9px}
+.footer-links a:hover{color:#f2c56b}
+.footer-bottom{border-top:1px solid #4b3929;padding-top:17px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.8rem;color:#d7c9b6}
+
+/* FLOATING BUTTONS */
+.float-whatsapp,.back-top{
+  position:fixed;right:22px;z-index:80;width:53px;height:53px;
+  border:0;border-radius:50%;display:grid;place-items:center;
+  box-shadow:var(--shadow);transition:.25s;
+}
+.float-whatsapp{bottom:23px;background:#25d366;color:white;font-size:1.7rem}
+.back-top{bottom:86px;background:var(--primary);color:white;font-size:1.25rem;opacity:0;visibility:hidden;transform:translateY(10px)}
+.back-top.visible{opacity:1;visibility:visible;transform:translateY(0)}
+.float-whatsapp:hover,.back-top:hover{transform:translateY(-4px) scale(1.04)}
+
+/* PHOTO VIEWER */
+.lightbox{
+  position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.95);
+  display:none;align-items:center;justify-content:center;padding:65px;
+}
+.lightbox.open{display:flex}
+.lightbox img{max-width:100%;max-height:82vh;object-fit:contain}
+.lightbox button{
+  position:absolute;width:44px;height:44px;border:1px solid #ffffff55;
+  border-radius:50%;background:#222;color:#fff;font-size:1.2rem;
+}
+.lightbox-close{top:18px;right:20px}
+.lightbox-prev{left:18px;top:50%;transform:translateY(-50%)}
+.lightbox-next{right:18px;top:50%;transform:translateY(-50%)}
+.lightbox-caption{position:absolute;bottom:22px;color:white;text-align:center;left:15px;right:15px}
+body.lightbox-open{overflow:hidden}
+
+/* SCROLL REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.reveal.show{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+}
+
+/* RESPONSIVE TABLET */
+@media(max-width:1050px){
+  .nav-links{gap:10px}
+  .nav-links a{font-size:.77rem}
+  .hero-grid{gap:28px}
+  .hero-photo>img{height:450px}
+  .order-grid{gap:25px}
+}
+@media(max-width:850px){
+  section{padding:65px 0}
+  nav{min-height:70px}
+  .menu-btn{display:grid}
+  .nav-links{
+    position:absolute;top:100%;left:0;right:0;
+    display:none;flex-direction:column;align-items:stretch;gap:0;
+    background:var(--bg);border-bottom:1px solid var(--line);
+    padding:8px 4% 16px;box-shadow:var(--shadow);
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{padding:12px 7px;border-bottom:1px solid var(--line);font-size:.9rem}
+  .nav-actions .btn{display:none}
+  .hero-grid,.story-grid,.quality-panel,.order-grid,.contact-panel{grid-template-columns:1fr}
+  .hero{padding-top:35px}
+  .hero-photo{margin:0 10px}
+  .hero-photo>img{height:420px}
+  .promise-grid{grid-template-columns:1fr 1fr}
+  .promise:nth-child(2){border-right:0}
+  .promise:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .product-grid{grid-template-columns:1fr 1fr}
+  .order-copy{position:static}
+  .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:250px 190px 190px}
+  .gallery-item:first-child{grid-row:span 2}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .footer-grid>div:first-child{grid-column:1/-1}
+}
+@media(max-width:540px){
+  .container{width:91%}
+  .brand-icon{width:41px;height:41px;font-size:1.35rem}
+  .brand-name{font-size:1.08rem}
+  .brand-tag{font-size:.56rem;letter-spacing:.7px}
+  .nav-actions{gap:6px}
+  .icon-btn{width:39px;height:39px}
+  .hero h1{font-size:clamp(2.65rem,12vw,4rem);letter-spacing:-1.4px}
+  .hero-photo>img{height:340px}
+  .photo-tag{right:-8px;padding:12px;max-width:190px}
+  .promise{padding:17px 9px;gap:8px}
+  .promise i{font-size:1.2rem}
+  .promise strong{font-size:.76rem}
+  .promise small{font-size:.67rem}
+  .story-images img{height:200px}
+  .product-grid{grid-template-columns:1fr}
+  .product-image img{height:230px}
+  .quality-panel{padding:22px}
+  .quality-list{grid-template-columns:1fr 1fr}
+  .quality-item{padding:12px}
+  .process-grid{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:210px 160px 160px;gap:8px}
+  .gallery-caption{padding:28px 10px 9px}
+  .gallery-caption strong{font-size:.92rem}
+  .gallery-caption small{font-size:.7rem}
+  .order-form{padding:20px}
+  .form-grid{grid-template-columns:1fr}
+  .field.full{grid-column:auto}
+  .contact-panel{padding:22px}
+  .footer-grid{grid-template-columns:1fr}
+  .footer-grid>div:first-child{grid-column:auto}
+  .float-whatsapp,.back-top{right:14px;width:49px;height:49px}
+  .lightbox{padding:60px 45px}
+  .lightbox-prev{left:6px}
+  .lightbox-next{right:6px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="topline">
+  <div class="container">
+    <span><i class="bi bi-stars"></i> Welcome to Krishna Dairy</span>
+    <a class="wa-link" href="https://wa.me/918369989017" target="_blank" rel="noopener">
+      <i class="bi bi-whatsapp"></i> WhatsApp: +91 83699 89017
+    </a>
+  </div>
+</div>
+
+<header>
+  <nav class="container">
+    <a href="#home" class="brand" aria-label="Krishna Dairy Home">
+      <span class="brand-icon">
+        <img src="logo.jpg" alt="Krishna Dairy Logo"
+          onerror="this.style.display='none';this.parentElement.innerHTML='<i class=&quot;bi bi-droplet-fill&quot;></i>';">
+      </span>
+      <span>
+        <span class="brand-name" data-brand>Krishna Dairy</span>
+        <span class="brand-tag">Care in every drop</span>
+      </span>
+    </a>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#products">Products</a>
+      <a href="#quality">Quality</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#order">Enquiry</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeToggle" type="button"
+        aria-label="Switch to night mode" title="Day / Night Mode">
+        <i class="bi bi-moon-stars-fill" id="themeIcon"></i>
+      </button>
+      <a class="btn btn-primary" href="#order">Enquire Now <i class="bi bi-arrow-up-right"></i></a>
+      <button class="icon-btn menu-btn" id="menuToggle" type="button"
+        aria-label="Open menu" aria-expanded="false">
+        <i class="bi bi-list"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <div class="hero-label"><i class="bi bi-stars"></i> A little goodness, every day</div>
+      <h1>Freshness that<br>feels like <span>home.</span></h1>
+      <p>Welcome to Krishna Dairy. Discover our dairy products, ask about current prices, discuss daily milk requirements and enquire about delivery options.</p>
+      <div class="hero-buttons">
+        <a href="#products" class="btn btn-primary">Explore Products <i class="bi bi-arrow-right"></i></a>
+        <a href="https://wa.me/918369989017" class="btn btn-outline wa-link" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> WhatsApp Us</a>
+      </div>
+      <div class="hero-note">
+        <span class="note-icon"><i class="bi bi-heart-fill"></i></span>
+        <span><strong>Here to help you</strong><br>Ask us about products, prices and availability.</span>
+      </div>
+    </div>
+    <div class="hero-photo">
+     
+      <img src="photo.jpg" alt="Krishna Dairy fresh milk"
+        onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=1100&q=85';">
+      <div class="photo-tag">
+        <strong>Krishna Dairy</strong>
+        <small>Everyday dairy enquiries, made simple.</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="promise-strip">
+  <div class="container promise-grid">
+    <div class="promise"><i class="bi bi-cup-hot"></i><span><strong>Dairy Products</strong><small>Explore our range</small></span></div>
+    <div class="promise"><i class="bi bi-chat-dots"></i><span><strong>Easy Enquiry</strong><small>Talk to our team</small></span></div>
+    <div class="promise"><i class="bi bi-truck"></i><span><strong>Delivery Details</strong><small>Ask about your area</small></span></div>
+    <div class="promise"><i class="bi bi-telephone"></i><span><strong>Direct Contact</strong><small>Quick communication</small></span></div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="container story-grid">
+    <div class="story-images reveal">
+      <img class="image-click" src="main.jpg" alt="Dairy farm" data-caption="Dairy farm">
+      <img class="image-click" src="men.jpg" alt="Milk products" data-caption="Milk products">
+    </div>
+    <div class="story-copy reveal">
+      <div class="eyebrow">A little about us</div>
+      <h2 class="section-title">Welcome to Krishna Dairy</h2>
+      <p>We believe choosing dairy products should feel simple and comfortable. Krishna Dairy helps customers enquire about available products and discuss their requirements directly.</p>
+      <p>Contact us to confirm current prices, quantities and delivery options before placing your order.</p>
+      <ul class="check-list">
+        <li><i class="bi bi-check-circle-fill"></i><span>Direct product enquiries</span></li>
+        <li><i class="bi bi-check-circle-fill"></i><span>Ask about prices and quantities</span></li>
+        <li><i class="bi bi-check-circle-fill"></i><span>Discuss delivery for your area</span></li>
+      </ul>
+      <a href="#contact" class="btn btn-primary">Get in Touch <i class="bi bi-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<section class="products-section" id="products">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="eyebrow">Discover our range</div>
+      <h2 class="section-title">Our Dairy Products</h2>
+      <p class="section-desc">Select a product and enquire about availability and current prices on WhatsApp.</p>
+    </div>
+
+    <div class="product-grid">
+      <article class="product-card color-hover reveal">
+        <div class="product-image">
+          <img class="image-click" src="milk.jpg" alt="Glass of milk" data-caption="Milk">
+          <span class="product-number">01 / MILK</span>
+        </div>
+        <div class="product-body">
+          <h3>Fresh Milk</h3>
+          <p>Ask about available milk options, quantities and current prices.</p>
+          <a href="#order" class="product-link order-product" data-product="Milk">Enquire about milk <i class="bi bi-arrow-up-right"></i></a>
+        </div>
+      </article>
+
+      <article class="product-card color-hover reveal">
+        <div class="product-image">
+          <img class="image-click" src="fresh.jpg" alt="Cheese and dairy products" data-caption="Dairy products">
+          <span class="product-number">02 / DAIRY</span>
+        </div>
+        <div class="product-body">
+          <h3>Dairy Products</h3>
+          <p>Contact us to ask which dairy products are currently available.</p>
+          <a href="#order" class="product-link order-product" data-product="Dairy Products">Product enquiry <i class="bi bi-arrow-up-right"></i></a>
+        </div>
+      </article>
+
+      <article class="product-card color-hover reveal">
+        <div class="product-image">
+          <img class="image-click" src="https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=800&q=80" alt="Milk bottle" data-caption="Milk supply">
+          <span class="product-number">03 / BULK</span>
+        </div>
+        <div class="product-body">
+          <h3>Bulk Orders</h3>
+          <p>Discuss larger quantities and regular supply requirements with us.</p>
+          <a href="#order" class="product-link order-product" data-product="Bulk Order Enquiry">Discuss your needs <i class="bi bi-arrow-up-right"></i></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="quality">
+  <div class="container">
+    <div class="quality-panel reveal">
+      <div>
+        <div class="eyebrow">Our approach</div>
+        <h2 class="section-title">Clear information.<br>Helpful service.</h2>
+        <p>We want you to have the details you need before making a purchase. Contact Krishna Dairy to discuss your requirements and confirm product information.</p>
+      </div>
+      <div class="quality-list">
+        <div class="quality-item color-hover"><i class="bi bi-chat-square-text"></i><h3>Direct Enquiry</h3><p>Ask your questions directly.</p></div>
+        <div class="quality-item color-hover"><i class="bi bi-tags"></i><h3>Price Details</h3><p>Confirm current prices.</p></div>
+        <div class="quality-item color-hover"><i class="bi bi-box-seam"></i><h3>Quantity</h3><p>Discuss your requirements.</p></div>
+        <div class="quality-item color-hover"><i class="bi bi-geo-alt"></i><h3>Delivery Area</h3><p>Check local availability.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="eyebrow">Simple steps</div>
+      <h2 class="section-title">How to Enquire</h2>
+      <p class="section-desc">Three simple steps to share your dairy requirements.</p>
+    </div>
+    <div class="process-grid">
+      <article class="process-card color-hover reveal">
+        <div class="process-no">01</div>
+        <h3>Choose a Product</h3>
+        <p>Browse the products and decide what you want to enquire about.</p>
+      </article>
+      <article class="process-card color-hover reveal">
+        <div class="process-no">02</div>
+        <h3>Share Details</h3>
+        <p>Complete the form with your name, contact number and quantity.</p>
+      </article>
+      <article class="process-card color-hover reveal">
+        <div class="process-no">03</div>
+        <h3>Connect on WhatsApp</h3>
+        <p>Review your prepared enquiry message and press Send in WhatsApp.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="gallery-section" id="gallery">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">A glimpse of dairy</div>
+      <h2 class="section-title">A Look at Our World</h2>
+      <p class="section-desc">Explore dairy-inspired photographs. Click any image to view it larger.</p>
+    </div>
+    <div class="gallery-grid reveal">
+      <div class="gallery-item">
+        <img class="image-click" src="https://images.unsplash.com/photo-1528498033373-3c6c08e93d79?auto=format&fit=crop&w=900&q=85" alt="Dairy farm" data-caption="Our Dairy World">
+        <div class="gallery-caption"><strong>Our Dairy World</strong><small>A glimpse of dairy life</small></div>
+      </div>
+      <div class="gallery-item">
+        <img class="image-click" src="https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=700&q=85" alt="Milk glass" data-caption="Milk">
+        <div class="gallery-caption"><strong>Fresh Milk</strong><small>Product showcase</small></div>
+      </div>
+      <div class="gallery-item">
+        <img class="image-click" src="https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=700&q=85" alt="Milk products" data-caption="Milk products">
+        <div class="gallery-caption"><strong>Our Products</strong><small>Explore the range</small></div>
+      </div>
+      <div class="gallery-item">
+        <img class="image-click" src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?auto=format&fit=crop&w=700&q=85" alt="Cheese" data-caption="Dairy range">
+        <div class="gallery-caption"><strong>Dairy Range</strong><small>Ask for availability</small></div>
+      </div>
+      <div class="gallery-item">
+        <img class="image-click" src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=700&q=85" alt="Green countryside" data-caption="Countryside">
+        <div class="gallery-caption"><strong>Farm Life</strong><small>A countryside view</small></div>
+      </div>
+    </div>
+    <p class="gallery-hint"><i class="bi bi-zoom-in"></i> Click or tap an image to open the photo viewer.</p>
+  </div>
+</section>
+
+<section class="order-section" id="order">
+  <div class="container order-grid">
+    <div class="order-copy reveal">
+      <div class="eyebrow">Let's talk</div>
+      <h2 class="section-title">Send Us Your Enquiry</h2>
+      <p>Tell us what you need. Your form details will be placed into a WhatsApp message for you to review.</p>
+      <ul class="order-benefits">
+        <li><i class="bi bi-check-circle-fill"></i><span>Ask about current prices and availability.</span></li>
+        <li><i class="bi bi-check-circle-fill"></i><span>Share quantity and delivery preferences.</span></li>
+        <li><i class="bi bi-check-circle-fill"></i><span>Review the message before sending.</span></li>
+      </ul>
+      <p><strong><i class="bi bi-whatsapp"></i> WhatsApp: +91 83699 89017</strong></p>
+    </div>
+
+    <form class="order-form reveal" id="orderForm">
+      <h3 class="form-title">Product Enquiry Form</h3>
+      <p class="form-intro">Fields marked * are required.</p>
+      <div class="form-grid">
+        <div class="field">
+          <label for="name">Your Name *</label>
+          <input id="name" name="name" type="text" placeholder="Enter your name" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="phone">Mobile Number *</label>
+          <input id="phone" name="phone" type="tel" inputmode="tel" placeholder="Enter mobile number" autocomplete="tel" pattern="[0-9+\-\s()]{8,18}" title="Please enter a valid contact number." required>
+        </div>
+        <div class="field">
+          <label for="product">Product *</label>
+          <select id="product" name="product" required>
+            <option value="">Select a product</option>
+            <option value="Milk">Milk</option>
+            <option value="Dairy Products">Dairy Products</option>
+            <option value="Bulk Order Enquiry">Bulk Order Enquiry</option>
+            <option value="Delivery Enquiry">Delivery Enquiry</option>
+            <option value="Other Enquiry">Other Enquiry</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="quantity">Quantity / Requirement *</label>
+          <input id="quantity" name="quantity" type="text" placeholder="e.g. 2 litres" required>
+        </div>
+        <div class="field">
+          <label for="frequency">How Often?</label>
+          <select id="frequency" name="frequency">
+            <option>One-time enquiry</option>
+            <option>Daily</option>
+            <option>Weekly</option>
+            <option>Monthly</option>
+            <option>To be discussed</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="delivery">Delivery Preference</label>
+          <select id="delivery" name="delivery">
+            <option>To be discussed</option>
+            <option>Home delivery</option>
+            <option>Store pickup</option>
+            <option>Bulk delivery</option>
+          </select>
+        </div>
+        <div class="field full">
+          <label for="location">Your Area / Location *</label>
+          <input id="location" name="location" type="text" placeholder="Enter your area or locality" required>
+        </div>
+        <div class="field full">
+          <label for="message">Additional Message</label>
+          <textarea id="message" name="message" placeholder="Any extra details or questions?"></textarea>
+        </div>
+      </div>
+      <button class="btn form-submit" type="submit"><i class="bi bi-whatsapp"></i> Send Enquiry on WhatsApp</button>
+      <p class="form-note"><i class="bi bi-shield-check"></i> WhatsApp opens with your enquiry prepared. You must press Send to submit it.</p>
+    </form>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="eyebrow">Need help?</div>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-desc">Have another question? Contact us directly on WhatsApp.</p>
+    </div>
+    <div class="faq-wrap reveal">
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">How can I check product prices? <i class="bi bi-plus-lg"></i></button>
+        <div class="faq-answer">Send us a WhatsApp enquiry with the product and quantity you need. We can discuss current prices and availability.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">Do you provide delivery? <i class="bi bi-plus-lg"></i></button>
+        <div class="faq-answer">Share your area and delivery requirements so we can discuss whether delivery is available for your location.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">Can I ask about bulk quantities? <i class="bi bi-plus-lg"></i></button>
+        <div class="faq-answer">Yes. Select Bulk Order Enquiry in the form and include the quantity and preferred schedule.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">How do I send my enquiry? <i class="bi bi-plus-lg"></i></button>
+        <div class="faq-answer">Fill in the form, press the WhatsApp button, review your prepared message and press Send in WhatsApp.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="contact-panel reveal">
+      <div>
+        <div class="eyebrow">Get in touch</div>
+        <h2>We're happy to help.</h2>
+        <p>Contact Krishna Dairy for product enquiries, current prices and delivery information.</p>
+        <a href="https://wa.me/918369989017" class="btn btn-primary wa-link" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> Message Us</a>
+      </div>
+      <div class="contact-options">
+        <a class="contact-option wa-link" href="https://wa.me/918369989017" target="_blank" rel="noopener">
+          <i class="bi bi-whatsapp"></i><span><strong>WhatsApp</strong><small>+91 83699 89017</small></span>
+        </a>
+        <a class="contact-option" href="#order">
+          <i class="bi bi-basket2"></i><span><strong>Product Enquiry</strong><small>Tell us what you need</small></span>
+        </a>
+        <a class="contact-option" href="#order">
+          <i class="bi bi-truck"></i><span><strong>Delivery Enquiry</strong><small>Ask about your area</small></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand" data-brand>Krishna Dairy</div>
+        <p>Dairy product enquiries made simple. Contact us to ask about products, prices and availability.</p>
+      </div>
+      <div>
+        <h3>Quick Links</h3>
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#about">About Us</a>
+          <a href="#products">Our Products</a>
+          <a href="#order">Product Enquiry</a>
+        </div>
+      </div>
+      <div>
+        <h3>Get in Touch</h3>
+        <div class="footer-links">
+          <a class="wa-link" href="https://wa.me/918369989017" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> +91 83699 89017</a>
+          <a href="#order"><i class="bi bi-basket"></i> Product Enquiry</a>
+          <a href="#order"><i class="bi bi-truck"></i> Delivery Enquiry</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> <span data-brand>Krishna Dairy</span>. All rights reserved.</span>
+      <span>Made with care for everyday dairy.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="float-whatsapp wa-link" href="https://wa.me/918369989017" target="_blank" rel="noopener" aria-label="Chat with Krishna Dairy on WhatsApp" title="Chat on WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>
+<button class="back-top" id="backTop" type="button" aria-label="Back to top" title="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close photo viewer"><i class="bi bi-x-lg"></i></button>
+  <button class="lightbox-prev" id="lightboxPrev" type="button" aria-label="Previous photo"><i class="bi bi-chevron-left"></i></button>
+  <img id="lightboxImage" src="" alt="">
+  <button class="lightbox-next" id="lightboxNext" type="button" aria-label="Next photo"><i class="bi bi-chevron-right"></i></button>
+  <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
+
+<script>
+/* BUSINESS SETTINGS */
+const DAIRY_NAME = "Krishna Dairy";
+const WHATSAPP_NUMBER = "918369989017";
+
+const DEFAULT_MESSAGE = `🙏 Namaste! Welcome to Krishna Dairy 🥛🐄
+
+Thank you for connecting with us!
+
+🥛 Milk and dairy products
+📦 Daily and bulk quantity enquiries
+💰 Current price and availability
+🚚 Delivery information
+
+Please tell us your product requirements, quantity and area.
+
+Thank you for choosing Krishna Dairy! 🙏`;
+
+/* BUSINESS NAME */
+document.querySelectorAll("[data-brand]").forEach(el => {
+  el.textContent = DAIRY_NAME;
+});
+
+/* WHATSAPP LINKS */
+function makeWhatsAppURL(message = DEFAULT_MESSAGE) {
+  return "https://wa.me/" + WHATSAPP_NUMBER +
+    "?text=" + encodeURIComponent(message);
+}
+
+document.querySelectorAll("a.wa-link, a[href*='wa.me/']").forEach(link => {
+  link.href = makeWhatsAppURL();
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+});
+
+/* FOOTER YEAR */
+document.getElementById("year").textContent = new Date().getFullYear();
+
+/* DAY / NIGHT MODE */
+const themeToggle = document.getElementById("themeToggle");
+const themeIcon = document.getElementById("themeIcon");
+
+function applyTheme(theme) {
+  const dark = theme === "dark";
+  document.body.classList.toggle("dark", dark);
+  themeIcon.className = dark ? "bi bi-sun-fill" : "bi bi-moon-stars-fill";
+  themeToggle.setAttribute("aria-label", dark ? "Switch to day mode" : "Switch to night mode");
+  themeToggle.title = dark ? "Switch to Day Mode" : "Switch to Night Mode";
+  document.querySelector('meta[name="theme-color"]').content = dark ? "#171a17" : "#fffaf0";
+}
+
+let savedTheme = "light";
+try {
+  savedTheme = localStorage.getItem("krishnaDairyTheme") || "light";
+} catch (e) {}
+applyTheme(savedTheme);
+
+themeToggle.addEventListener("click", () => {
+  const next = document.body.classList.contains("dark") ? "light" : "dark";
+  applyTheme(next);
+  try {
+    localStorage.setItem("krishnaDairyTheme", next);
+  } catch (e) {}
+});
+
+/* MOBILE MENU */
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", () => {
+  const open = navLinks.classList.toggle("open");
+  menuToggle.innerHTML = open ? '<i class="bi bi-x-lg"></i>' : '<i class="bi bi-list"></i>';
+  menuToggle.setAttribute("aria-expanded", String(open));
+});
+
+navLinks.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menuToggle.innerHTML = '<i class="bi bi-list"></i>';
+    menuToggle.setAttribute("aria-expanded", "false");
+  });
+});
+
+/* PRODUCT SHORTCUTS */
+document.querySelectorAll(".order-product").forEach(link => {
+  link.addEventListener("click", () => {
+    document.getElementById("product").value = link.dataset.product;
+  });
+});
+
+/* FAQ */
+document.querySelectorAll(".faq-question").forEach(button => {
+  button.addEventListener("click", () => {
+    const item = button.closest(".faq-item");
+    const wasOpen = item.classList.contains("active");
+
+    document.querySelectorAll(".faq-item").forEach(faq => {
+      faq.classList.remove("active");
+      faq.querySelector(".faq-question").setAttribute("aria-expanded", "false");
+    });
+
+    if (!wasOpen) {
+      item.classList.add("active");
+      button.setAttribute("aria-expanded", "true");
+    }
+  });
+});
+
+/* FORM -> WHATSAPP */
+document.getElementById("orderForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  if (!this.reportValidity()) return;
+
+  const data = new FormData(this);
+  const name = String(data.get("name") || "").trim();
+  const phone = String(data.get("phone") || "").trim();
+  const product = String(data.get("product") || "").trim();
+  const quantity = String(data.get("quantity") || "").trim();
+  const frequency = String(data.get("frequency") || "").trim();
+  const delivery = String(data.get("delivery") || "").trim();
+  const location = String(data.get("location") || "").trim();
+  const extra = String(data.get("message") || "").trim();
+
+  const enquiry = `🙏 Namaste! I would like to enquire about Krishna Dairy. 🥛
+
+👤 CUSTOMER DETAILS
+Name: ${name}
+Mobile: ${phone}
+Area: ${location}
+
+🥛 PRODUCT REQUIREMENTS
+Product: ${product}
+Quantity: ${quantity}
+Frequency: ${frequency}
+Delivery preference: ${delivery}
+
+${extra ? "Additional message: " + extra + "\n\n" : ""}Please share the current price, product availability and delivery details.
+
+Thank you! 🙏`;
+
+  const url = makeWhatsAppURL(enquiry);
+  const win = window.open(url, "_blank");
+
+  if (!win) window.location.href = url;
+});
+
+/* PHOTO VIEWER */
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const lightboxCaption = document.getElementById("lightboxCaption");
+const photos = Array.from(document.querySelectorAll(".image-click"));
+let currentPhoto = 0;
+let lastFocused = null;
+
+function openPhoto(index) {
+  if (!photos.length) return;
+  currentPhoto = (index + photos.length) % photos.length;
+  const photo = photos[currentPhoto];
+  lightboxImage.src = photo.currentSrc || photo.src;
+  lightboxImage.alt = photo.alt || "Dairy photograph";
+  lightboxCaption.textContent = photo.dataset.caption || photo.alt || "";
+  lightbox.classList.add("open");
+  document.body.classList.add("lightbox-open");
+  document.getElementById("lightboxClose").focus();
+}
+
+function closePhoto() {
+  lightbox.classList.remove("open");
+  document.body.classList.remove("lightbox-open");
+  lightboxImage.src = "";
+  if (lastFocused) lastFocused.focus();
+}
+
+function movePhoto(step) {
+  openPhoto(currentPhoto + step);
+}
+
+photos.forEach((photo, index) => {
+  photo.addEventListener("click", () => {
+    lastFocused = photo;
+    openPhoto(index);
+  });
+});
+
+document.getElementById("lightboxClose").addEventListener("click", closePhoto);
+document.getElementById("lightboxPrev").addEventListener("click", () => movePhoto(-1));
+document.getElementById("lightboxNext").addEventListener("click", () => movePhoto(1));
+
+lightbox.addEventListener("click", event => {
+  if (event.target === lightbox) closePhoto();
+});
+
+document.addEventListener("keydown", event => {
+  if (!lightbox.classList.contains("open")) return;
+  if (event.key === "Escape") closePhoto();
+  if (event.key === "ArrowRight") movePhoto(1);
+  if (event.key === "ArrowLeft") movePhoto(-1);
+});
+
+/* BACK TO TOP */
+const backTop = document.getElementById("backTop");
+
+function updateBackTop() {
+  backTop.classList.toggle("visible", window.scrollY > 400);
+}
+
+window.addEventListener("scroll", updateBackTop, { passive: true });
+updateBackTop();
+
+backTop.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+/* SMOOTH SECTION SCROLL */
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener("click", event => {
+    const selector = link.getAttribute("href");
+    if (!selector || selector === "#") return;
+    const target = document.querySelector(selector);
+
+    if (target) {
+      event.preventDefault();
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
+});
+
+/* AUTO REVEAL ANIMATIONS */
+const revealItems = document.querySelectorAll(".reveal");
+
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  revealItems.forEach(item => observer.observe(item));
+} else {
+  revealItems.forEach(item => item.classList.add("show"));
+}
+</script>
+</body>
+</html>
